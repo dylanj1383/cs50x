@@ -1,0 +1,68 @@
+dictionaries (like in python) are a data struct
+where u can associate keys and values
+
+the goal of dicts is to be super fast -> constant time access!!
+
+
+HASH FUNCTIONS
+- maps an infinite domain to a finite range
+
+Bucketization: grouping things into buckets
+
+Hash Table: like array and linked list had a baby
+
+
+Lets say we wanted a hashtable for names. 
+There would be 26 buckets; one for each alphabet letter. 
+We could put ppl in a bucket with the first letter of their name. 
+To add someone to a bucket, make the bucket point to that person.
+If we need multiple ppl in a bucket, just have the last person point in the bucket point to them 
+
+
+a -> alex 
+b -> bryan
+c 
+d ->dylan -> daniel -> dyanna
+e 
+f 
+g 
+h 
+i 
+j -> jeff
+k 
+l 
+m -> mikel -> murl -> maggie
+n 
+o 
+p 
+q 
+r 
+s 
+t 
+u 
+v 
+w 
+x 
+y 
+z 
+
+in the worst case, this is still O(n); everyone could be l
+In best case, it is O(1); which happens anytmie there is no collision. Such as for jeff
+
+the current hash function takes in the name and outputs the index of the first letter of their name in the alphabet
+e.g. hash(mario) = 11. hash(dylan) = 3
+
+if we use a more complex hash function, the probability of collisions goes down.  
+(e.g. looking at first three letters); this would give a num b/w 1 and 26^3. 
+the downside is u use much more storage
+
+Good hash functions:
+- Use all of the data inputted and only the data inputted
+- Be deterministing (the same input always gives the same output)
+- Uniformly distirbute the output data (e.g. don't always return 0)
+- Similar data inputs give very different data outputs
+We just use hash functions that exist on the internet since there is no bother to make ur own
+
+If there are k buckets and n names, the lookup is O(n/k), assuming an even distribution of names
+SO, it is technicall O(n) (since we dont care about constants); However, in practice, with a smart hash function, 
+you can ensure u (almost) never have collisions, so it becomees O(1)

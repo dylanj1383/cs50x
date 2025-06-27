@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped table-hover table-bordered align-middle text-center">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Total Holding Value</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+        {% for row in table_data%}
+            <tr>
+                <td>{{ row.symbol }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.shares }}</td>
+                <td>{{ row.price }}</td>
+                <td>{{ row.total }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>
+        Cash Balance: {{ balance }}
+    </h4>
+    <h3>
+        Grand Total: {{ grand_total }}
+    </h3>
+    
+{% endblock %}

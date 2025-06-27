@@ -1,0 +1,228 @@
+
+Better notes from the lesson are here: https://cs50.harvard.edu/x/2025/notes/7/
+
+SQL = Structured Query Language
+
+
+Flat-File Database: simplest kind; just a text file w/ rows and columns (differnet lines, commas, etc.)
+ -> csv = comma separated values. Like a structured text file. Rows are separated by new lines and columns are separated by commas
+ -> tsv = tab separated value. same idea; tabs are less common since they are sometimes converted to spaces
+
+ - if you have commas as part of the data entries, you should put that data in quotes
+ e.g. 
+ Language,Project_Name
+ C,tideman
+ Python,"Hello, world" <-- we put hello world in quotes so the comma in it doesn't get confused for a separating comma
+
+
+Relational Database: you bake in relationships among piece of data in the databse; tables are linked through keys
+
+SQL:
+CRUD - basically the 4 things u can do with SQL (or in general for databases)
+
+CREATE - can also insert
+READ - Called Select in SQL
+UPDATE
+DELETE - can also drop data/sets of data
+
+CREATE TABLE table (column, type, ...); //like in google sheets where you can have multiple sheets within the same doc
+
+
+Standard practice is to use a command line program to access a databse - specifically sqlite3
+
+control + d to exit sqlite3; or just do .quit
+
+to make new databse w/ sqlite:
+sqlite3 FILE //filetype is typically .db
+
+this opens a new databse and puts u in the sqlite command line program
+
+sqlite> .mode csv //puts it in csv mode
+
+sqlite> .import numbers.csv numbers //open a table called numbers with the data from numbers.csv
+
+sqlite> .schema //show the design of the databse (schema =~ design; what tables are in the db)
+ -output: 
+CREATE TABLE IF NOT EXISTS "numbers"(
+"Timestamp" TEXT, "Random_Number" TEXT, "Random_Number_Plus_5" TEXT);
+//basically, the .import command we ran above actually ran this SQL code
+//.import assumes everything is text
+
+
+//recall that to read, we use SELECT
+SELECT columns FROM table; //the simplest form of the SELECT statement
+...
+
+sqlite> .headers on //configures to show the headers when I display columns (e.g. like displayign with SELECT)
+sqlite> .mode column //nicer visual format for this ^ 
+
+sqlite3> SELECT * FROM numbers; // note: * = everything; so this selects all the columns from numbers
+//this will show us all the data in numbers
+
+sqlite> SELECT Random_Number from numbers; //selects just the Random_Number column and displays it
+
+List of some SQL functions:
+AVG
+COUNT
+DISTINCT
+LOWER
+MAX
+MIN
+UPPER
+
+sqlite> SELECT COUNT(*) FROM numbers; // how many rows in numbers; recall * means all columns 
+
+sqlite> SELECT DISTINCT timestamp FROM numbers; // show all the timestamps without duplicates
+
+sqlite> SELECT COUNT(DISTINCT timestamp) FROM numbers; find how many distinct timestamps there are
+
+Other SQL functions/commands:
+GROUP BY 
+LIKE 
+LIMIT
+ORDER BY 
+WHERE
+
+sqlite> SELECT COUNT(*) FROM numbers WHERE Random_Number < 0.5; //gives how many numbers are less than 0.5
+sqplite SELECT Random_Number FROM numbers WHERE Random_Number < 0.5; //lists all random_nums less than 0.5
+
+//note: to quote a TEXT value you use single quotes (' ')
+//also, to compare values we use a single equal sign (not like our boolean expressions so far)
+//AND slash OR can still be used like we normally do. Parantheses for boolean logic work the same too
+//You cant do a < x < b tho
+
+
+
+//note that stylistically, you capitalize keywords (e.g. SELECT, AND, etc). 
+
+//the truly right way to do it is to put double quotes around table names/column names, single quotes around TEXT values ur searching for, and no quotes but capitalize any SQL commands
+//but its just convenient to omit the double quotes around table names as long as there isn't a sql command with the same name
+
+//the 'escpae character' for a single quote is to use 2 single quotes - e.g. if ur are searching for a TEXT with single quotes, use two to escape (WHERE problem = 'Hello, It''s Me')
+
+
+//We can use LIKE to see if data is similar
+sqlite> ... WHERE problem LIKE "Hello, %";
+//^search for anything  of the form Hello _
+
+//you can group by a column name
+sqlite> SELECT COUNT(*) FROM favorites GROUP BY language;
+
+//an also order our output by another column name
+sqlite> SELECT COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*); //implicitly ORDER BY COUNT(*) ASC
+sqlite> SELECT COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*) DESC;
+
+//we can use "as" to assign new names to columns
+sqlite> SELECT COUNT(*) as n FROM favorites GROUP BY language ORDER BY n DESC; //now n will be the column name instead of COUNT(*)
+
+LIMIT can be used to show the top n results
+sqlite> SELECT COUNT(*) as n FROM favorites GROUP BY language ORDER BY n DESC LIMIT 2; //just shows the top 2
+
+
+//INSERTING:
+sqlite> INSERT INTO table (column, ...) VALUES(value, ...); //any column u don't provide will be null
+//having a NULL value is equivalent to the absence of a value. we can use "" for the value nothing, and NULL for no value
+
+//DELETING:
+sqlite> DELETE FROM numbers; //this would delete EVERYTHING :/
+//as a result, is is always best practice to do deletions with the form: DELETE FROM table WHERE condition;
+sqlite> DELETE FROM numbers WHERE Timestamp IS NULL;//you can't compare NULL with =; you must check with WHERE thing IS NULL;
+
+
+//UPDATING:
+sqlite> UPDATE table SET column = value, column = value, ... WHERE condition;
+
+sqlite> INSERT INTO numbers (Random_Number, Random_Number_Plus_5), VALUES(2, 7);
+sqlite> UPDATE numbers SET Timestamp = 1.24 WHERE Timestamp IS NULL; //if no WHERE clause, set every row as descirbed
+
+//with real world data, we typically assign IDS to things (e.g. people, shows, etc.) and establish relationships between the IDs
+//in this way, we can use the simpler/smaller integers to represent relationships rather than longer TEXT types
+
+
+one-to-one relationship - One record in Table A corresponds to exactly one record in Table B — and vice versa.
+Example: Each TV show has one unique average rating, and that rating belongs only to that show.
+
+each show has 1 rating, for example
+
+typically, in the shows table, the column is called id
+then in the table that is related to shows (the ratings table) - the column is called show_id (or more generally, tablename_id)
+
+PRIMARY KEY: a unique identifier for a table's rows - typically an integer; you can specify to autoincrement this so u dont forget to add a new one each time you insert into the table.
+   -> autoincrement = make a new value that is different from all other values in the column; usually justb y adding one to the last row of the column 
+FOREIGN KEY: imposes a relationship with another table
+
+
+MORE DATATYPES:
+BLOB //Binary Large Object - some data as 0s and 1s
+INTEGERS 
+REALS 
+NUMERIC  //For things like years or timestamps
+TEXT
+
+MORE KEYWORDS:
+IS NOT NULL
+IS NULL
+UNIQUE
+
+You can pipe the output of one select to the input of another; a nested query
+sqlite> SELECT * FROM shows WHERE id IN (SELECT show_id FROM ratings WHERE rating > 6.0) LIMIT 10;
+
+
+JOIN - to join many tables together
+sqlite> SELECT * FROM {shows JOIN ratings ON shows.id = ratings.show_id} LIMIT 10; //the curly braces arent actually used but show how the join thing is working alongside the rest
+sqlite> SELECT * FROM title, rating FROM shows JOIN ratings ON shows.id = ratings.show_id LIMIT 10; //this works so long as title and rating appear in only 1 file (no ambiguity)
+  -> if there is ambiguity, I would have to do shows.title and ratings.rating to avoid it
+
+one-to-many relationship - One record in Table A can relate to many in Table B, but each in Table B relates to only one in Table A.
+example: Each TV network can air many TV shows, but each TV show airs on only one network.
+
+To get the id of a show, you can do:
+slite> SELECT id FROM shows WHERE title = 'TITLE';
+//and if u want to do something with it:
+sqlite> SELECT genre FROM genres WHERE show_id = 
+   ...> (SELECT id FROM shows WHERE title = 'Catweazle'); 
+
+//when u join in a one-to-many relationship, you will get many columns of the "one" part
+
+
+many-to-many relationship - Records in both tables can relate to many in the other.
+Example: A show can have many stars, An actor can be in many shows
+^ you will need a third table for this
+
+Join table - a table who relates two other tables together 
+
+
+INDEXES: we can use this to structure our data more efficiently if we know it will be queried a lot (make a B-tree)
+the tradeoff is more spaces to store the B-tree. Also spend a bit more time whenever we insert/update/delete to keep the tree balanced
+
+e.g.:
+sqlite> CREATE INDEX title_index ON shows(title);
+
+//now, a command like SELECT * FROM shows where TITLE = 'The Office'; will run much faster
+
+
+u can import SQL in python (w/ CS50)
+
+from cs50 import SQL (see numbers_w_sql.py)
+
+
+race conditions:
+- consider u and ur roomate are living together. You both notice u are out of milk, so you both go out to get milk
+- Then u come back and now u have too much milk and some milk goes bad and no one is happy
+
+- the issue is that many ppl are trying to update a variable in ur database (fridge). 
+- It would be ideal if u put a lock on the fridge or a note saying "getting milk" so this doesnt happen
+
+- in real world, if a social media post is getting likes, and many ppl are liking all at the same time, itsl ike many ppl going out to get milk
+- to solve this we use transactions
+
+BEGIN TRANSACTION 
+//do whatever stuff u needa do (e.g. get the milk) - ideally not much goes here
+COMMIT 
+
+
+sql injection attacks:
+- if u do -- anything, its a comment
+- e.g. ("dylan'--")
+- if u take an input with -- and put that in ur database, whenever u access that data its gonna read that as a comment => you've injected code into the application via the data ur entering
+- this is why we DONT use fstrings (when working with SQL + python ) - we are prone to injection attacks 

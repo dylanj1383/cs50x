@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Qickest with small datasets but slows down and matches Sort3 as the data gets bigger, just like Bubble Sort does;O(n^2)
+
+sort2 uses: Merge Sort
+
+How do you know?: It’s always the fastest overall, with the lowest run time. That lines up with Merge Sort O(nlogn)
+
+sort3 uses: Selection Sort
+
+How do you know?: Slows dramatically as data gets larger(O(n^2) behaviour), but still loses to sort1 on small data

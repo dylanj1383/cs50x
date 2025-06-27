@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- <script>
+            function greet(){
+                // u can select elements the exact same way as css uses
+
+                // u can use double or single quotes like python
+                let name = document.querySelector('#name').value;
+                alert('hello, ' + name);
+            }
+            
+        </script> -->
+
+        <!-- this is our final js -->
+        <!-- we can factor this out and put it in its own file -->
+        <!-- <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                document.querySelector('form').addEventListener('submit', function (event){
+                    alert('hello, ' + document.querySelector('#name').value);
+                    event.preventDefault(); 
+                });
+            })
+        </script> -->
+
+        <script src="scripts.js"></script>
+
+
+        <title>hello, world</title>
+    </head>
+
+    <body>
+        <!-- return false means the form never goes to the server -->
+        <!-- <form onsubmit="greet(); return false;"> -->
+        <form>
+            <!-- if an input to a form doesnt have a name it wont be submitted to the server -->
+
+            <!-- right now we are gonna implement this client side, not server side -->
+            <input autocomplete="off" id="name" autofocus placeholder="Name">
+            <input type="submit">
+        </form>
+
+        <!-- note that if we put this in the header there would be an error since we are refrencing the form before we create it -->
+        <!-- <script>
+            // function greet(event){
+            //     // u can select elements the exact same way as css uses
+
+            //     // u can use double or single quotes like python
+            //     alert('hello, ' + document.querySelector('#name').value);
+            //     event.preventDefault(); // prevent the default behaviour (submitting the form to server)
+            // }
+            // let form = document.querySelector('form');
+            // form.addEventListener('submit', greet);
+
+            // alternately, we can put it the greet function defined within the addEventListener call
+            // using an anonymous function (like lambda functions in python)
+            // document.querySelector('form').addEventListener('submit', function (event){
+            //     alert('hello, ' + document.querySelector('#name').value);
+            //     event.preventDefault(); 
+            // });
+            
+
+        </script> -->
+    </body>
+</html>

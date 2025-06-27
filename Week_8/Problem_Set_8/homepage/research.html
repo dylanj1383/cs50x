@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Dylan Jayabahu</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script src="scripts/highlight-nav.js"></script>
+
+        <h1>
+            Dylan Jayabahu
+        </h1>
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="certificates.html">Certificates</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ORCID & Authorea Section -->
+        <div class="container mb-4">
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://orcid.org/0009-0006-6754-1938" target="_blank" class="btn btn-outline-success" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID Icon" width="20" height="20">
+                    ORCID
+                </a>
+                <a href="https://www.authorea.com/users/845610-dylan-jayabahu" target="_blank" class="btn btn-outline-primary" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="https://www.authorea.com/favicon.ico" alt="Authorea Icon" width="20" height="20">
+                    Authorea
+                </a>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <!-- Paper 1 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Deep Learning Model for Invasive Ductal Carcinoma Detection in Histopathology Images</h3>
+                            <p class="mb-0">IEEE Canadian Conference on Electrical and Computer Engineering <a href="https://ccece2025.ieee.ca/" target="_blank">(CCECE)</a></p>
+                            <p>May 2025</p>
+                            <p><strong>Authors:</strong> Dylan Jayabahu</p>
+                            <h5>Abstract</h5>
+                            <p class="card-text">
+                                Breast cancer, with Invasive Ductal Carcinoma (IDC) as its most prevalent subtype, presents substantial challenges in early detection and diagnosis. This study introduces a novel computer-aided diagnosis (CAD) system designed to detect IDC in histopathology images with high precision. Leveraging a convolutional neural network (CNN), the system incorporates advanced methodologies such as sliding window-based heatmaps and a unique oversampling technique that extracts patches from homogenous regions in stitched whole-slide images. This approach enhances minority class representation while maintaining biological integrity, addressing class imbalance effectively. The system achieved a balanced accuracy of 89.06% and an F1-score of 86.68%, outperforming existing models in the literature. The implementation of sliding heatmaps further improves interpretability, enabling pathologists to visualize model predictions seamlessly. This research demonstrates the potential of combining innovative deep learning techniques with domain-specific insights to enhance IDC detection, offering a reliable tool for clinical practice and contributing to improved patient outcomes.
+                            </p>
+                            <div>
+                                <img src="media/CCECE_Thumbnail.png" class="img-fluid mb-3 mx-auto d-block">
+                                <a 
+                                    href="https://www.techrxiv.org/users/845610/articles/1234061-deep-learning-model-for-invasive-ductal-carcinoma-detection-in-histopathology-images" 
+                                    target="_blank" class="btn btn-primary d-block">Read Paper</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paper 2 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Dataset for Real-World Human Action Detection Using FMCW mmWave Radar</h3>
+                            <p class="mb-0">University of Waterloo Conference on Vision and Intelligent Systems <a href="https://uwaterloo.ca/events/events/cvis-2024-10th-annual-conference-vision-and-intelligent" target="_blank">(CVIS)</a></p>
+                            <p>December 2024</p>
+
+                            <p><strong>Authors:</strong> Dylan Jayabahu & Parthipan Siva</p>
+
+                            <h5>Abstract</h5>
+                            <p class="card-text">
+                                Millimeter-wave (mmWave) radar is emerging as a privacy-preserving technology for in-home monitoring, particularly for older adults who prefer aging in place. This study addresses the need for accurate human action recognition (HAR) in real-world settings by introducing a dataset of natural activities collected from 28 homes. The dataset captures sit-down and stand-up actions--key indicators of mobility--using the Chirp Smart Home Sensor, which combines sparse 3D point cloud data from an mmWave radar with low-resolution thermal imaging for annotation. The dataset comprises over 900 annotated actions across diverse residential environments, supplemented with augmentation techniques to mitigate class imbalance. A baseline convolutional neural network (CNN) model is evaluated using Doppler-time (DT) and positional-time data (XT, YT, ZT) features. Results reveal significant challenges, including high variability between training and testing environments, low precision due to diverse non-action classes, and limited spatial coverage of action locations.
+                            </p>
+                            <a href="https://openjournals.uwaterloo.ca/index.php/vsl/article/view/6364" target="_blank" class="btn btn-primary d-block">Read Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,109 @@
+Full CS50 notes here: https://cs50.harvard.edu/x/2025/notes/8/
+
+
+HTML = hypertext markup language; give structure
+- made of tags and attribtues
+
+CSS = cascading style sheets; show how certain 
+- defines how certain tags appear stylistcally
+- uses properties (e.g. color of something is this value, etc. etc.; key value pairs)
+
+Javascript
+- U can code actual functions, variables, etc.
+- very similar syntax to se except use let to give a new variable
+- U can put it in ur html code with a <script> tag
+- U can have a script tag where u specify the filename/link 
+
+
+Shorts:
+
+IP = internet protocol
+
+IP address is a way to uniquely identify any device on the internet
+
+IPv4:
+a.b.c.d where a, b, c, d are ints in [0, 255] (each is 1 byte/8 bits), written in decimal
+4x8 bits = 32 bits total for an IPv4 adress
+note this only givs 2^32 = 256^4 = 4 billion possible IPV4 adresses - which isn't enough (~8 billion ppl, many devices per person, etc.)
+
+IPv6: better version
+a.b.c.d.e.f.g.h, where a,b,c,d,e,f,g,h are each 2 bytes/16 bits (in [0, 65536]), written as hexadecimal (so rlly in the range [0, ffff])
+16x8 = 128 bits total for an IPv6 adress
+this now gives 2^128 = 65536^8 = 3.4028237e+38 possible IPv6 adresses - which is plenty
+
+
+DHCP = Dynamic host configuration protocol
+- a DCHP server assigns u an ip adress
+
+
+DNS = Domain Name System
+- translates IP adresses to human comprehensible words (e.g. youtube.com) 
+- if u know the ip adress u can literally type that into the browser instead
+
+Access Points
+- Each Ip adress is assigned to a router
+- Router is like a middle man b/w the internet and the private ip adresses of the computers that are connected to ur router
+- The router has the public ip adress - u connect to ther outer with private ip adresses
+
+Internet = connected networks agreeing on how to communicate
+If every network were wired to every other network, not feasible
+Routers solve this - like stepping stones
+
+n.x.x.x where n is the network number (generalization)
+
+TCP = Transmission Control Protocol
+- very related to IP; so much that they are grouped and called TCP/IP
+- IP gets it to the right machine, TCP gets it to the right service on that machine (to the right port)
+        -> each program/service/utility on a machine has a port number
+- TCP also guarantees delivery
+
+
+Common conventional ports
+FTP (file transfer) = port 21
+SMTP (email) = port 25 
+DNS (domain name system ) = port53 
+HTTP = port 80
+HTTPS = port 443
+
+
+TCP/IP Process
+- Tcp breaks the data u wanna send into chunks
+- Wraps the port it should go to and the order that the chunks should be reconstructed in in a "packet"
+- IP gets the packets and adds another layer of info which is where the packet is supposed to go - the IP layer 
+- The packet goes through the system of routers to the target machine 
+- THe machine gets it, sees the IP layer and confirms that it has arrived to the right spot 
+- After, it sees the TCP layer and sees which port to go to, and seees which package number it is (e.g. 8 of 15)
+- ONce all data is recieved, TCP hands it off to the right port
+
+
+HTTP = Hypertext Transfer Protocol
+- an application layer protocol; how u must make a request for a webpage and how the server gives back the info 
+- the rules of engagement of working with webpages 
+
+HTTP request line - (usually) the first line that is transmitted in an HTTP request
+ -> method request-target http-version 
+ -> get    dylan.com/monkey   http/1.1
+ - like saying "dear blank" at the top of a letter
+
+ response is
+  -> http-version status
+  - the response is a status code of whether or not ur request could be fulfilled
+
+STATUS CODES:
+200 series=success
+200 OK = success
+
+300 series = redirection
+301 = moved permamently, you'll be redirected to the new location 
+302 found = moved temporarily, lives somewhere else but not forever
+
+400 series = Client Error (request was invalid)
+401 = unauthorized (u may need to log in)
+403 = forbidden (a file that is there but no one is supposed to access)
+404 = not found 
+
+500 series = Server Error (Request was valid but something wrong on server side)
+500 = Internal server error 
+504 = gateway timeout 
+
+

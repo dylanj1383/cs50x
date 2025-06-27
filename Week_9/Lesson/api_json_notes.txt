@@ -1,0 +1,11 @@
+API = application programming interface
+-> set of rules and protocols that allows different software applications to communicate with each other
+
+JSON = JavaScript Object Notation
+-> typically APIs just send u the info u need
+-> we can use JSONS to send just the javascript objects (the data)
+-> js objects are basically dicts (key-value pairs)
+
+AJAX = asynchronous javascript and xml
+ -> refresh sections of page w/o refreshing whole page 
+ -> e.g. just update the score of a sports game on a website

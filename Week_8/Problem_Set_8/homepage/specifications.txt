@@ -1,0 +1,29 @@
+HTML Tags:
+<div>
+<link>
+<nav>
+<li>
+<a>
+<p>
+<ul>
+<img>
+<iframe>
+<video>
+<h1>
+<h3>
+
+CSS Properties:
+transition
+transform
+text-align
+margin
+object-fit
+font-size
+font-weight
+
+JS:
+Search certificates by title 
+Highlight which page in nav bar
+
+Bootstrap:
+Grid system for cards, navigation bar styles, nice layout on mobile, nice buttons

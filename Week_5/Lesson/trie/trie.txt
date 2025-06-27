@@ -1,0 +1,16 @@
+trie = short for retrieval
+
+Each new letter of a name will be an array of 26 chars. 
+
+There is a pointer that pionts to the next letter. in the word. 
+
+Once you reach the end of a word, you can indicate that with memory (e.g. if the node's number is not null)
+
+if u want to continue on (e.g. TOAD vs TOADETTE), you can just add more pointers to more arrays
+
+With this structure, lookup is independant of how many names we already have. 
+It is only O(k), where k is the length of the name. K is presumably finite, so it is O(1) insertion/lookup/etc.
+
+See screenshot for visualization. 
+
+We can use trie to impelement a dictionary as well. 

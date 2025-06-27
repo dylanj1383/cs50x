@@ -1,0 +1,11 @@
+char: 1 byte. Used to store a single character.
+int: Typically 2 or 4 bytes. Used to store whole numbers.
+float: 4 bytes. Used to store single-precision floating-point numbers.
+double: 8 bytes. Used to store double-precision floating-point numbers.
+short: 2 bytes. Used to store smaller integers.
+long: Typically 4 or 8 bytes. Used to store larger integers.
+long double: 10 or 16 bytes. Used to store high-precision floating-point numbers.
+bool: 1 byte. Used to store boolean values.
+
+
+however, it is best practices to use  sizeof(thing) when allocating memory

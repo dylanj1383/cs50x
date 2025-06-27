@@ -1,0 +1,16 @@
+SELECT 
+  AVG(energy) AS avg_energy,
+  AVG(valence) AS avg_valence,
+  AVG(danceability) AS avg_danceability
+FROM songs;
+
+0.65906|0.484443|0.71646
+
+^ Medium-high energy, medium valence, high-ish danceability
+two moods could be Uplifting/Chill
+
+Why not representative?
+- Averages hide high/low outliers
+- No context/time of day data, etc.
+- The values assigned to these songs are subjective (who decides how much valence a song has, for example)
+- Songs are weighted equally => they could instead of weighted based on based on listening time/song

@@ -1,0 +1,5 @@
+Big O is the worst case complexity
+Big Omega is the best case complexity
+Big Theta is the tight bound complexity; that is, if Big O and Big Omega are the same
+
+The above notation is called asymptotic notation (what function we approach as twe tend to infinity)

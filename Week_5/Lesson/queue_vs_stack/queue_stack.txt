@@ -1,0 +1,21 @@
+not like arrays which are implemented on a low level; you can implement these in many ways but the
+funcitonality/usage is what defines them
+
+QUEUS:
+- first in first out (FIFO)
+- like a lineup of ppl waiting for something
+
+- operations:
+    - enque (add someone to the line; add to the end of the queue)
+    - deque (remove someone from the line; remove from the front of the queue)
+
+
+
+
+STACKS:
+- last in first out (LIFO)
+- literally like a stack of items
+
+- operations:
+    - push (add to the stop of the stack)
+    - pop (remove from the top of the stack)

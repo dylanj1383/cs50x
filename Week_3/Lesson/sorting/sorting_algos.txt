@@ -1,0 +1,53 @@
+SELECTION SORT:
+
+Start with i = 0
+Go through the list and find the smallest element from nums[i] to end
+Swap nums[i] and the smallest element.
+Now the list is correct up to nums[i]
+Increase i by 1 and keep repeating until i = n-1
+
+Selection sort is O(n^2) (worst case) and Omega(n^2) (best case), so it therefore is Theta(n^2)
+
+
+
+BUBBLE SORT:
+
+repeat n-1 times:
+    run i from 0 to n-2 //we could make the small optimization of not doing extra work if we know the end is correct
+
+    if nums[i+1] < nums[i]:
+        swap nums[i+1] and and nums[i] 
+    if no swaps:
+        quit
+
+
+Bubble sort is O(n^2). Best case is Omega(n) with the smart upgrade of if no swaps.
+
+
+MERGE SORT:
+
+if length == 1:
+    return list
+sort the left half
+sort the right half
+merge the halves
+return the merged list
+
+
+merge (l1, l2):
+    int i, j = 0, 0
+
+    new_list = int[len(l1) + len(l2)]
+
+    while i+j < len(l1) + len(l2):
+        if l1[i] >= l2[j]:
+            new_list[i+j] = l1[i]
+            i++;
+        else:
+            new_list[i+j] = l2[j]
+            j++;
+
+note that we needed a new list - if you want to improve runtime you gotta sacrifice a but of memory
+in general it costs resources
+
+merge sort runs in O(nlogn) time. its worst case is stil Omega(nlogn). So it is runs in theta(nlogn)

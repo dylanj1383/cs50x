@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+    margin: 20px auto;
+}
+
+
+.btn img {
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover img {
+    transform: scale(1.2);
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.95rem;
+}
+
+.card img {
+    object-fit: cover;
+    height: 200px;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #ffffff; /* or another color */
+    color: #ffffff !important;
+}

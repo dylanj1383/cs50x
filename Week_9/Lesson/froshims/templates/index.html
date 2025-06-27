@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>Register</h1>
+
+    <form action="\register" method="post">
+        <input automcplete="off" autofocus name="name" placeholder="Name" required>
+        
+        <!-- <select name="sport" required>
+            [have a disabled option called sport so the default isnt one of the other sports ]
+            <option disabled selected value="">Sport</option>  [import than the value is ""]
+
+
+            [<option value="Basketball">Basketball</option>
+            <option value="Soccer">Soccer</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Ultimate Frisbee">Ultimate Frisbee</option>]
+
+
+            [Instead of doing this^  mannually, we can do it with the sports list we passed] 
+            {% for sport in sports %}
+                <option value="{{ sport }}" > {{ sport }} </option>
+            {% endfor %}
+
+        </select> -->
+
+        <!-- instead of select dropdown, we can also use radio buttons (mutually exclusive buttons; only select one) -->
+        {% for sport in sports %}
+            <input name="sport" type="radio" value="{{ sport }}"> {{ sport }} 
+        {% endfor %}
+
+        <button type="Submit">Register</button>
+    </form>
+
+{% endblock %}

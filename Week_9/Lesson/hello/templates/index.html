@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+    <!-- <form action="/greet" method="post"> we would use method="post" if we didnt want it to show up in url -->
+    <form method="post"> <!-- we don't need to send it to /greet since we udpated it to all be under "/"-->
+        <input name="name" autocomplete="off" placeholder="Name" autofocus>
+        <button type="submit">Greet</button>
+    </form>
+
+
+{% endblock %}

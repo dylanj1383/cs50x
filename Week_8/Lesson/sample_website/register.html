@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>register</title>
+    </head>
+
+    <body>
+        <form>
+            <input 
+                autocomplete="off" 
+                autofocus
+                name="any email"
+                placeholder="Email"
+                type="email"
+            >
+            <!-- if we anted an input more specific/unique than email, we could use regex -->
+            <input 
+                autocomplete="off" 
+                autofocus
+                name="email2"
+                placeholder=".edu Email"
+                pattern=".+@.+\.edu"
+            >
+            <input 
+                autocomplete="off" 
+                autofocus
+                name="phone"
+                placeholder="Phone Number"
+                pattern="\d{3}-\d{3}-\d{4}"
+            >
+            <button>Register</button>
+        </form>
+
+
+        <!-- note that  user could expand the form, change the code here (modify the in-memory version of the webpage
+         and then give some dingus input -->
+    </body>
+
+</html>
+
+<!-- use validor.w3.org to check ur html code syntactically -->

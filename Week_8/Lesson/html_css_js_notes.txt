@@ -1,0 +1,150 @@
+HTML = hypertext markup language 
+- language, but not programming language (not turing complete)
+   -> no variables/logic/functions etc. 
+- it is a markup language -> semantically define structure of a webpage
+
+common tags:
+<b> = bold
+<i> = italics
+<u> = underline
+
+<p> = paragraph (new paragraph)
+<hx> = header x (x is a number)
+
+<ul> = unordered list
+<ol> = ordered list
+<li> = list item 
+
+<table> = table
+<tr> = table row
+<td> = table data (cell)
+<thead> = header of a table
+<tbody> = body of a table
+
+<form> = html form 
+<input> = input field (text/button etc) within a form 
+
+<div> = page division
+
+<a href="link"> = hyperlink
+<img src="image_path"> = image
+
+<!DOCTYPE html> = use HTML 5 for this page, allows using html5 tags
+
+<!-- --> = comment 
+
+
+CSS = Cascading Style sheets
+- another language used to customize the appearance of websites 
+- still not a programming language -> styling language 
+
+selecter = where the style should be applied (e.g. body)
+bewteeen curly praces after the selecter, put the styles u wanna apply with key-value pairs
+-> this key-value pairs are called css declarations, each ending with a semicolon
+
+common css declarations:
+border: style color width;
+background-color: color;
+color: color;
+font-size: absolute size | relative size;
+font-familiy: font name | generic name;
+text-align: left | right | center | justify;
+
+ur selector can be a tag (e.g. h1 or body) but also an id or a class
+
+h3{
+   stuff
+}
+
+#unique_id{
+   stuff
+}
+
+.class{
+   stuff
+}
+
+best practice is to put ur css in a css file and link it to ur html with a link tag 
+
+
+
+JavaScript - derived from C's syntax 
+JS runs client side
+
+<script> 
+//code
+
+</script>
+
+OR 
+
+<script src=""></script>
+
+Variables 
+- var = local variable 
+- no type def needed 
+if/else if, etc. are all same from C
+loops also same from C with some more variations added
+
+functions use function keyword
+functions can be anonymous (like lambda functions)
+
+arrays:
+var nums = [1, 2, 3, 4, 5];
+var mixed = [1, "2", 4.3];
+
+Can behave as OOP language
+
+var object = {field1: "val1", field2: "var2"};
+
+
+for var thing of nums{
+   num[thing]
+}
+
+for var key in object{
+   key //gives the key
+   object[key] //gives the value
+}
+
+for var val of object{
+   value
+}
+
+u can use console.log to print stuff to console 
+
+
+
+Events = response to user doing something 
+eventhandler = js code that executes when an event takes place 
+html supports event handlers (e.g. onclick="some js code")
+
+innerHTML is whatever is between the thing's tags
+
+
+Document Object Model - DOM  = organizes the content into a single JS object 
+
+u can call methods/change this DOM so that ur page changes 
+
+it is structered based on the html of ur page, nested in the same way 
+
+
+DOM properties:
+innerHTML = what text is inside this (between its tags)
+nodeName = the name of this node 
+id = whatever id u assigned that html element 
+parentNode = reference to one node up 
+childNode = reference to one node layer down 
+attributes = an array of attributes of the html element 
+style = the style (like css style) of the page/element 
+
+DOM methods:
+getElementById(id) gets the element with id of id (from this element down)
+getElementsByTagName(tag) same thing but by tagname (from this element down)
+appendChild(node) gives a new node below this element 
+removeChild(node) removes the node specified assuming its below this element 
+
+jQuery = popular JS library, simplifies the code such as DOM manipulations
+
+
+

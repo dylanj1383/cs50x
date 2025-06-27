@@ -1,0 +1,36 @@
+when you hit compile:
+
+1. Preprocessing
+Anythig with a pound sign is preprocessed
+Anything with a hashtag. Saying #include <stdio.h> literally copy and pastes the code from stdio at the start of ur code for you
+Saying #define A B literally replaces any instance of A with B in your code. 
+
+2. Compiling
+Translating from C (or whatever language ur in) to Assemnbly
+
+3. Assembling
+Converting the assembly code to actual zeros and ones
+
+4. Linking
+You have several files of zeros of ones - one from each of ur #includes, and one for ur main
+Linking joins these zeros and ones together. 
+
+
+Compliling without make:
+We use clang - a compiler
+
+clang hello.c 
+
+will make a file called a.out whic you can run with ./a.out
+
+however, a.out isn't a nice filename, so we can specify the output file as follows
+
+clang -o hello hello.c 
+
+and now we will have the file hello, which we can run with ./hello 
+
+if we have included libraries in our hello, we need to add those
+
+clang -o hello hello.c -lcs50
+
+the -l means to LINK IN the cs50 library (step 4). You have to link in not for math/stdio but for third party code/libraries
