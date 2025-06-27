@@ -9,5 +9,5 @@ This repository contains my personal coursework, notes, and solutions to problem
 > *CS50x Certificate of Completion — 2025*
 
 ---
-Disclaimer:
+**Disclaimer:**
 > These solutions are shared for educational purposes only. Do not copy, submit, or present any of this work as your own; doing so would violate CS50’s academic honesty policy.
